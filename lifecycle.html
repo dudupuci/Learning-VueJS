@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchers</title>
+</head>
+<body>
+
+    <div id="lifecycle">
+
+        <h1>Hello {{name}}</h1>
+      
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script>
+ 
+        let app = new Vue({
+            el: '#lifecycle',
+            data: {
+                name: 'Code is nice'
+            },
+            beforeCreate(){
+                console.log('Antes de ser criado')
+            },
+            created() {
+                console.log('criado')
+            },
+            beforeMount() {
+                console.log('antes de montar')
+            },
+            mounted() {
+                console.log('Montado')
+            },
+            beforeUpdate() {
+                console.log('Antes de atualizar')
+            },
+            updated() {
+                console.log('atualizado')
+            },
+            beforeDestroy(){
+                console.log('antes de destruir')
+            },
+            destroyed() {
+                console.log('destruido')
+            }
+
+            
+        })   
+
+    </script>
+    
+</body>
+</html>
