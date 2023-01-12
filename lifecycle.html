@@ -11,6 +11,13 @@
     <div id="lifecycle">
 
         <h1>Hello {{name}}</h1>
+
+       <h1>Todos os players</h1>
+   
+       <ul v-for="player in players">
+        <li>{{player.name}}</li>
+        
+       </ul>
       
     </div>
 
@@ -20,13 +27,22 @@
         let app = new Vue({
             el: '#lifecycle',
             data: {
-                name: 'Code is nice'
+                name: 'Code is nice',
+                players: []
             },
+
             beforeCreate(){
-                console.log('Antes de ser criado')
+                console.log('Antes de ser criado')                            
             },
             created() {
-                console.log('criado')
+             fetch('http://localhost:8190/players').then(response => {
+                response.json().then(data => {
+                    this.players = data
+                })
+             }).catch(error => {
+                console.log(error)
+             })
+
             },
             beforeMount() {
                 console.log('antes de montar')
