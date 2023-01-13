@@ -18,6 +18,7 @@
         <h3 key="some" v-else-if="tickets <= 10 && tickets != 0 ">Quase acabando, restam: {{tickets}}</h3>
         <h3 key="empty" v-else>Os ingressos acabaram {{tickets}}</h3>
 
+         <h3 v-if="tickets == 50"> {{some()}} Estão acabando! tem 50</h3>
         <h1>
         </h1>
 
@@ -34,6 +35,11 @@
                 name: 'Code is nice',
                 show: true,
                 tickets: 100
+            },
+            methods: {
+                some: function() {
+                    return alert('Os ingressos estão acabando, estão em : '+this.tickets)
+                }
             }
 
 
