@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives - v-once</title>
+</head>
+
+<body>
+
+    <div id="directives">
+
+        <ol>
+            <li v-for="item in cities">
+                {{ item.city }} - {{item.country}}
+            </li>
+        </ol>
+
+        <ul>
+            <li v-for="(movie, index) in movies">
+                {{ movie }} - {{index}}
+            </li>
+        </ul>
+
+        <p v-for="(company, key) in companies">
+            {{key}} : {{company}}
+        </p>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+
+        let app = new Vue({
+            el: '#directives',
+            data: {
+                players: [],
+                cities: [{
+                    city: 'Londrina',
+                    country: 'Brazil'
+                }, {
+                    city: 'Sumaré',
+                    country: 'Brazil'
+                }, {
+                    city: 'Nova York',
+                    country: 'EUA'
+                }],
+                movies: ['Jurassic Park', 'Jumanji', 'Harry Potter', 'O Prisioneiro'],
+                companies: {
+                    name: 'Facebook',
+                    createdAt: 2004,
+                    createdBy: 'Mark Zukenbergh'
+                }
+            }
+
+
+        })
+
+    </script>
+
+</body>
+
+</html>
