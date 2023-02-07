@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives - v-pre</title>
+</head>
+
+<body>
+
+    <div id="directives">
+        <h1 v-pre>{{nome}}</h1>
+    
+
+        <p v-on:click="alert('Ola')" v-pre>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Autem quas facere sed ipsam dolores accusamus, nesciunt recusandae modi fugiat asperiores animi, sunt,
+             assumenda quibusdam necessitatibus. Deserunt fugiat vitae quasi earum?</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+
+        Vue.component('show-text', {
+            template:
+            `
+                <div> 
+                <h1> Testando component </h1>
+                </div>
+            `
+        })
+
+
+        let app = new Vue({
+            el: '#directives',
+            data: {
+                nome: 'Beach Tennis System'
+            }
+              
+
+        })
+
+    </script>
+
+</body>
+
+</html>

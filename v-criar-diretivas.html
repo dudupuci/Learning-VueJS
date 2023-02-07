@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives - v-pre</title>
+</head>
+
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <div id="directives">
+        <h1 v-upper>{{nome}}</h1>
+        <h1 v-capitalize>hello world {{nome}}</h1>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+
+    <script>
+        
+
+    
+            let app = new Vue({
+            el: '#directives',
+            data: {
+                nome: 'Beach Tennis System'
+            },
+            directives: {
+                capitalize: {
+
+                    bind(element) {
+                        console.log('BIND');
+                    },
+                    inserted(element) {
+                        console.log('fui inserido');
+
+                    
+
+                
+                let words = word.innerText.split(' ');
+                words.forEach((text, index) => {
+
+                    words[index] = text.charAt(0).toUpperCase() + text.slice(1)
+                });
+            
+                word.innerText = words.join(' ');
+            },
+            
+                
+                },
+                update(element) {
+                    console.log('fui atuali')
+                },
+                componentUpdated(element) {
+                    console.log('component atualizado')
+                }
+            }
+    
+
+        });
+       
+   
+        </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives - v-bind</title>
+</head>
+
+<body>
+
+    <div id="directives">
+        <h1>V-On</h1>
+
+        <h1>Para trazer a lista de pessoas, clique no botão abaixo!</h1>
+
+    
+        <input type="text" placeholder="Filtrar pessoas" v-on:keyup="filterPersons">
+          
+        <ol>
+            <li v-for="person in personsFiltred">{{person}}</li>
+        </ol>
+
+
+
+    
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+
+        let app = new Vue({
+            el: '#directives',
+            data: {
+                persons: ['Eduardo', 'Gabriel', 'Lorena', 'Emanuel', 'Moacir', 'Tâmara'],
+                personsFiltred: []
+            },
+            methods: {
+                  filterPersons(event) {
+                        this.personsFiltred = this.persons.filter(name => {
+                        return name.toUpperCase().includes(event.target.value.toUpperCase());
+                    })
+                  },
+                  created() {
+                    this.personsFiltred = this.persons
+                  }
+               }
+
+              
+
+
+        })
+
+    </script>
+
+</body>
+
+</html>

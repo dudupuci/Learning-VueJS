@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives - v-Slot</title>
+</head>
+
+<body>
+
+    <div id="directives">
+        <h1>V-Slot</h1>
+
+        
+        <input type="text" placeholder="Digite seu nome" v-model="nome">
+
+        <h1 v-if="nome == 'Eduardo' "><text-component></text-component></h1>
+        <h1 v-if="nome != 'Eduardo' && nome != '' && nome.length > 10">Não é eduardo? Insira o nome aqui: <text-area></text-area></h1>
+
+    
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+
+         Vue.component('text-component', {
+            template: 
+            `
+            <div>
+                <p> Eduardo Pucinelli !!! </p>
+                </div>
+            `  
+         })
+
+         Vue.component('text-area', {
+            template: 
+            `
+            <div>
+                <input type="text" placeholder="Seu nome">
+                </div>
+            `
+         })
+
+        let app = new Vue({
+            el: '#directives',
+            data: {
+                nome: ''
+            }
+              
+
+        })
+
+    </script>
+
+</body>
+
+</html>

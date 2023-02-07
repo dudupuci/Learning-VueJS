@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives - v-pre</title>
+</head>
+
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <div id="directives">
+
+
+        <h1 v-custom="{direction: argumento, val}">Ola mundo</h1>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+
+    <script>
+    
+    
+            function setDirection(element, binding) {
+                let direction = binding.arg.toLowerCase();
+                let value = binding.value;
+
+                switch(direction) {
+                    case 'left':
+                    case 'right':
+                    case 'top':
+                    case 'bottom':
+
+                    let newDirection = direction.charAt(0).toUpperCase() + direction.slice(1);
+
+                        eval(`element.style.margin${newDirection} = value + 'px'; `);
+
+                        break;
+
+                        default:
+                        console.error('Informe uma opcao correta')
+                }
+                console.log(element)
+                console.log('binding',binding)
+            }
+
+    
+            let app = new Vue({
+            el: '#directives',
+            data: {
+                nome: 'Beach Tennis System',
+                argumento :'left',
+                val: '150'
+            },
+            directives: {
+               custom: {
+                bind(element, binding) {
+                    setDirection(element,binding)
+
+                },
+               }
+            }
+
+        });
+       
+   
+        </script>
+
+
+
+
+</body>
+
+</html>

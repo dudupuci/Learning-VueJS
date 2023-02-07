@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directives - v-Slot</title>
+</head>
+
+<body>
+
+    <div id="directives">
+        <h1>V-Slot</h1>
+
+        <text-component>
+            <template v-slot:header>
+                <h1>Titulo do site</h1>
+            </template>
+           
+
+        </text-component>
+        <text-component>
+
+            <template #paragrafo>
+                 <p>Eai negada</p>
+            </template>
+
+        </text-component>
+        <text-component>
+
+        </text-component>
+    
+    
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+    <script>
+
+         Vue.component('text-component', {
+            template: 
+            `
+            <div>
+                <header>
+
+                    <slot name="header">
+                        
+                        </slot>
+
+                    </header>
+                     
+                        <p>  
+                            <slot name="paragrafo">
+                            </p>
+
+                </slot>
+                </div>
+            `  
+         })
+
+        let app = new Vue({
+            el: '#directives',
+            data: {
+                nome: ''
+            }
+              
+
+        })
+
+    </script>
+
+</body>
+
+</html>
